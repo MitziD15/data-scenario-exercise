@@ -83,6 +83,7 @@ ORDER BY month, tickets.priority;
 ```
 
 *Following that question 6 points out the solution for question 5 is related to reopen tickets, I will work on that theory*
+
 Theory 2: the drop isn't about response speed, it's about resolution quality. Customers are having to reopen tickets, and that's what is tanking CSAT even though volume and staffing look unchanged.
 If reopens spiked in the same month the CSAT dropped, it means that the resolution quality of each ticket might be the cause.
 
@@ -99,7 +100,19 @@ GROUP BY DATE_TRUNC("month", tickets.opened_at);
 
 
 7. What you'd actually do Say your query in Question 5 showed that reopened tickets in Billing spiked, and most of the reopens trace back to one specific issue type (e.g., refund timing questions). What would you actually do with that in the next week? Be concrete. What would you say to the team, what (if anything) would you change in a process or macro, and how would you know if it worked?
-If my query confirms 
+
+If my query confirms that reopens in Billing spiked and cluster around a specific issue type, this would be my week plan:
+* Day 1: I'd pull the data and review a sample of 15-20 reopened tickets myself first, just to have enough context going into the conversation and identify some patterns of why the first response is falling short. This not to arrive to conclusions, but so I'm not asking the team to interpret raw data.
+
+* Day 2 and 3: I'd bring my findings to the team in a working session. I'd share what the data shows (reopens are up, concentrated in refund time) and open the conversation for them to provide insight on what they see from their end, experience, etc. As they are the ones actually handling the conversations with customers, they have more context that I can't see from the data alone. I would also provide what I can see only from analyzing the data (patterns), from our team, and let them brainstorm of possible causes, maybe the macro is outdated, or the customers are asking follow-up questions we are not anticipating, etc.
+
+* Day 3: I'd give my manager a heads-up on what we found and what the team and I are planning to adjust. 
+
+* Day 4: Based on that comes out from that conversation, we'd update (or create) a macro or process together, so it reflects what the team actualy know works, not just what I think should work from the outside.
+* Day 5: I'd meet 1:1 with agents who had the mot reopens in that issue type to find out whether what we implemented as a team is actually helpful or whether they are running into something more specific like a particular gap in understanding, or a need or more hands-on training on that issue type.
+
+To know if the implementation worked, I'd track Billing's reopened_count and the issue-specific CSAT weekly over the following 3-4 weeks, but not just the team average. I'd specifically monitor the reopen rate for the agents who were struggling most, since an overall average could improve just becase the already-strong agents got even better, while masking the fact that other agents might not be improving. 
+If their individual numbers are not moving, that tells me that the root cause wasn't fully addressed and we need to go deeper on an individual level.
 
 8. Reporting up and coaching down You need to update your own manager on this in two sentences, and separately coach one agent on it in a 1:1. How would those two conversations differ?
 
