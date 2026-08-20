@@ -93,7 +93,7 @@ SELECT DATE_TRUNC("month", tickets.opened_at) AS month,
       AVG(tickets.reopened_count) AS avg_reopens
 FROM tickets
 WHERE tickets.category= "Billing"
-AND ticket.opened_at>= DATE_TRUNC("month",CURRENT_DATE) - INTERVAL "6 months"
+AND tickets.opened_at>= DATE_TRUNC("month",CURRENT_DATE) - INTERVAL "6 months"
 GROUP BY DATE_TRUNC("month", tickets.opened_at);
 
 ```
@@ -116,3 +116,9 @@ If their individual numbers are not moving, that tells me that the root cause wa
 
 8. Reporting up and coaching down You need to update your own manager on this in two sentences, and separately coach one agent on it in a 1:1. How would those two conversations differ?
 
+To my manager i'd would say: "The Billing CSAT drop identified traces back to a spike in reopened tickets concentrated around refund timing questions; the team and I worked through it together and updated the macro based on what they were actually running into with customers. We're now tracking the reopen rate weekly, both for the team overall and for the agents who were struggling most, to confirm the fix is landing and I will share the progress update in 2 weeks."
+
+In my 1:1 with the agent: This wouldn't be the first time they're hearing about it as they were already part of the team session where we looked at the data together, so the conversation starts from a shared understanding. I'd asked directly: "Now that we've updated the macro, how's is feeling on your end? Is it giving you what you need, or are you still running into any other type of issue?"
+If they're still struggling despite the fix, I want t know specifically where; is it a particular type of refund question that is more complex or is it more about confidence in explaining something to the customer?  Based on that, I'd either walk through a couple of real examples together, or set up more hands-on practice, but the goal is finding out if this a tooling gap we need to close, or the need for more direct mentoring.
+
+The message to my manager is brief and outcome-focused, it is meant to inform, not to explore, so I compressed it to the root cause, action taken and the next checkpoint. The 1:1 conversation is exploratory and specific, because the goal is not to report a result, it is to understand their individual experience and figure out together, whether the fix actually solved their particular gap or something more targeted is still needed.
